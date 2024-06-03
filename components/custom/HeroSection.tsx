@@ -27,7 +27,7 @@ export function HeroSection({ data } : { readonly data: HeroSectionProps }) {
     const { heading, subHeading, image, link } = data;
     const imageURL = "http://localhost:1337" + image.url;
     return (
-      <header className="relative h-[600px] overflow-hidden">
+      <header className="relative h-[720px] overflow-hidden">
         <StrapiImage
             alt="background"
             className="absolute inset-0 object-cover w-full h-full aspect/16:9"
