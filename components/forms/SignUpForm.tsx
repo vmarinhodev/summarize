@@ -14,7 +14,7 @@ import {
   CardFooter,
   Card,
 } from "@/components/ui/card";
-
+import { SubmitButton } from "../custom/SubmitButton";
 
 export function SignupForm() {
     const INITIAL_STATE = {
@@ -25,8 +25,6 @@ export function SignupForm() {
         registerUserAction,
         INITIAL_STATE,
     );
-
-    console.log("formstate", formState)
 
   return (
     <div className="w-full max-w-md">
@@ -72,8 +70,8 @@ export function SignupForm() {
             </div>
           </CardContent>
           <CardFooter className="flex flex-col">
-            <button className="w-full">Sign Up</button>
-            <StrapiErrors error={formState?.strapiErrors} />
+            <SubmitButton className="w-full" text="Sign Up" loadingText="Loading" />
+            <StrapiErrors error={formState?.strapiErrors?.error} />
           </CardFooter>
         </Card>
         <div className="mt-4 text-center text-sm">
