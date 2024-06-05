@@ -47,7 +47,7 @@ export async function HeroSection({ data } : { readonly data: HeroSectionProps }
         </p>
         <Link
           className="mt-8 inline-flex items-center justify-center px-6 py-3 text-base font-medium text-black bg-white rounded-md shadow hover:bg-gray-100"
-          href={link.url}
+          href={linkUrl}
         >
           {userLoggedIn ? "Dashboard" : link.text}
         </Link>  
