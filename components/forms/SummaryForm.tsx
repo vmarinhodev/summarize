@@ -5,6 +5,7 @@ import { toast } from "sonner";
 import { Input } from "../ui/input";
 import { SubmitButton } from "../custom/SubmitButton";
 import { generateSummaryService } from "@/data/services/summary-service";
+import { createSummaryAction } from "@/data/actions/summary-actions";
 
 interface StrapiErrorsProps {
     message: string | null;
@@ -43,7 +44,8 @@ export function SummaryForm() {
             return;
         }
 
-        console.log(videoId)
+        toast.success("Generating Summary");
+        // console.log(videoId)
         const summaryResponseData = await generateSummaryService(videoId);
         // console.log(summaryResponseData, "Response from route handler");
 
@@ -54,6 +56,27 @@ export function SummaryForm() {
                 ...INITIAL_STATE,
                 message: summaryResponseData.error,
                 name: "Summary Error",
+            });
+            setLoading(false);
+            return;
+        }
+
+        const payload = {
+            data: {
+                title: `Summary for video: ${processedVideoId}`,
+                videoId: processedVideoId,
+                summary: summaryResponseData.data,
+            },
+        };
+
+        try {
+            await createSummaryAction(payload);
+        } catch (error) {
+            toast.error("Error Creating Summary");
+            setError({
+                ...INITIAL_STATE,
+                message: "Error Creating Summary",
+                name: "Summary Error"
             });
             setLoading(false);
             return;

@@ -27,7 +27,7 @@ export async function registerUserService(userData: RegisterUserProps) {
 
         return response.json();
     } catch (error) {
-        console.log("Registration Service Error:", error);
+        console.error("Registration Service Error:", error);
     }
 }
 

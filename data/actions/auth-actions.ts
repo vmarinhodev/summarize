@@ -28,7 +28,7 @@ const schemaRegister = z.object({
 
 
 export async function registerUserAction(prevState: any, formData: FormData) {
-    console.log("Hello from Register User")
+    // console.log("Hello from Register User")
     const validateFields = schemaRegister.safeParse({
         username: formData.get("username"),
         password: formData.get("password"),
@@ -63,7 +63,7 @@ export async function registerUserAction(prevState: any, formData: FormData) {
         };
     }
 
-    console.log('response', responseData.jwt)
+    // console.log('response', responseData.jwt)
     cookies().set("jwt", responseData.jwt, config);
     redirect("/dashboard");
 }

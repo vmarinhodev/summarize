@@ -1,11 +1,13 @@
 import qs from "qs";
 import { flattenAttributes, getStrapiURL } from "@/lib/utils";
 import { unstable_noStore as noStore } from 'next/cache';
+import { getAuthToken } from "./services/get-token";
 
 const baseUrl = getStrapiURL();
 
 export async function fetchData(url: string) {
-    const authToken = null; // later stage
+    const authToken = await getAuthToken(); // later stage
+    
     const headers = {
         method: "GET",
         headers: {
@@ -73,4 +75,28 @@ export async function getGlobalPageMetadata() {
   });
 
   return await fetchData(url.href);
+}
+
+export async function getSummaries(queryString: string, currentPage: number) {
+  const PAGE_SIZE = 4;
+  const query = qs.stringify({
+    sort: ["createdAt:desc"],
+    filters: {
+      $or: [
+        { title: { $containsi: queryString } },
+        { summary: { $containsi: queryString } },
+      ],
+    },
+    pagination: {
+      pageSize: PAGE_SIZE,
+      page: currentPage,
+    },
+  });
+  const url = new URL("/api/summaries", baseUrl);
+  url.search = query;
+  return fetchData(url.href);
+}
+
+export async function getSummaryById(summaryId: string) {
+  return fetchData(`${baseUrl}/api/summaries/${summaryId}`);
 }

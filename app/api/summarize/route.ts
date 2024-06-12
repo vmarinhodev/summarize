@@ -83,7 +83,7 @@ export async function POST(req: NextRequest) {
             { status: 402 }
         );
 
-    console.log("FROM OUR ROUTE HANDLER:", req.body);
+    // console.log("FROM OUR ROUTE HANDLER:", req.body);
     const body = await req.json();
     const videoId = body.videoId;
 
@@ -98,7 +98,7 @@ export async function POST(req: NextRequest) {
         let summary: Awaited<ReturnType<typeof generateSummary>>;
 
         summary = await generateSummary(transformedData.text, TEMPLATE);
-        console.log("Summary", summary)
+        // console.log("Summary", summary)
         return new Response(JSON.stringify({ data: summary, error: null }));
 
     } catch (error) {

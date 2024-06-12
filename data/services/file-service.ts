@@ -32,7 +32,7 @@ export async function fileUploadService(image: any) {
         return dataResponse;
 
     } catch (error) {
-        console.log("Error uploading image:", error);
+        console.error("Error uploading image:", error);
         throw error;
     }
 }
