@@ -5,7 +5,7 @@ import { SubmitButton } from "../custom/SubmitButton";
 import { Input } from "../ui/input";
 import { Textarea } from "../ui/textarea";
 import { updateProfileAction } from "@/data/actions/profile-actions";
-import { useFormState } from "react-dom";
+import { useActionState } from "react";
 import { StrapiErrors } from "../custom/StrapiErrors";
 
 interface ProfileFormProps {
@@ -37,7 +37,7 @@ function CountBox({ text }: { readonly text: number }) {
 export function ProfileForm({ data, className, }: { readonly data: ProfileFormProps; readonly className?: string; }) {
     const updateProfileWithId = updateProfileAction.bind(null, data.id);
 
-    const [formState, formAction] = useFormState(
+    const [formState, formAction] = useActionState(
         updateProfileWithId,
         INITIAL_STATE
     );

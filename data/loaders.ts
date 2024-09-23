@@ -4,10 +4,8 @@ import { unstable_noStore as noStore } from 'next/cache';
 import { getAuthToken } from "./services/get-token";
 
 const baseUrl = getStrapiURL();
-
 export async function fetchData(url: string) {
     const authToken = await getAuthToken(); // later stage
-    
     const headers = {
         method: "GET",
         headers: {
@@ -19,6 +17,7 @@ export async function fetchData(url: string) {
     try {
         const response = await fetch(url, authToken ? headers : {});
         const data = await response.json();
+        
         return flattenAttributes(data);
     } catch (error) {
         console.error("Error fetching data:", error);

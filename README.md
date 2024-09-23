@@ -1,36 +1,34 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
-## Getting Started
+**Project Overview**
 
-First, run the development server:
+This project is a web application that allows users to create and manage summaries of YouTube videos. The application is built using a combination of frontend and backend technologies.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+**Frontend**
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+The frontend is built using Next.js, a popular React-based framework for building server-rendered and statically generated websites. The frontend is responsible for rendering summary cards, handling user authentication, and providing a dashboard for users to view and manage their summaries.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+**Backend**
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+The backend is built using Strapi, a headless Content Management System (CMS) that provides a RESTful API for managing content. The backend is responsible for managing summaries, handling CRUD (Create, Read, Update, Delete) operations, and providing APIs for the frontend to consume.
 
-## Learn More
+**Summary Management**
 
-To learn more about Next.js, take a look at the following resources:
+The project defines a summary content type with attributes such as `videoId`, `title`, `summary`, and `user`. The summary is stored in a Strapi collection, and the backend provides APIs for creating, reading, updating, and deleting summaries.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+**Middleware and Authentication**
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+The project uses middleware functions to handle authentication and authorization. For example, the `on-summary-create` middleware is triggered when a new summary is created, and the `global::is-owner` middleware is used to check if the user is the owner of the summary.
 
-## Deploy on Vercel
+**Template and Instructions**
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+The project includes a template and instructions for generating summaries. The template provides a structure for the summary, including a title, key topics, and a YouTube video description.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+**Key Features**
+
+The project has the following key features:
+
+1. Summary creation and management
+2. User authentication and authorization
+3. Dashboard for viewing and managing summaries
+4. APIs for frontend to consume
+5. Template and instructions for generating summaries
