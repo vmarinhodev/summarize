@@ -1,5 +1,5 @@
 
-## Project Overview
+# Project Overview
 
 This project is a web application that allows users to create and manage summaries of YouTube videos. The application is built using a combination of frontend and backend technologies.
 
@@ -35,10 +35,10 @@ The project has the following key features:
 
 ## Technology Stack
 
-Next.js for the frontend
-Strapi for the backend
-React for building the frontend
-Tailwind CSS for styling
-TypeScript for type checking
-OpenAI's language model to generate summaries
+Next.js for the frontend\
+Strapi for the backend\
+React for building the frontend\
+Tailwind CSS for styling\
+TypeScript for type checking\
+OpenAI's language model to generate summaries\
 Various libraries and dependencies, including @langchain/openai, @radix-ui/react-label, and react-player
