@@ -5,7 +5,7 @@ import ImagePicker from "../custom/ImagePicker";
 import { ZodErrors } from "../custom/ZodErrors";
 import { StrapiErrors } from "../custom/StrapiErrors";
 import { uploadProfileImageAction } from "@/data/actions/profile-actions";
-import { useActionState } from "react";
+import { useFormState } from "react-dom";
 import { SubmitButton } from "../custom/SubmitButton";
 
 interface ProfileImageFormProps {
@@ -33,7 +33,7 @@ export function ProfileImageForm({
         data?.id
     );
 
-    const [formState, formAction] = useActionState(
+    const [formState, formAction] = useFormState(
         uploadprofileImageWithIdAction,
         initialState
     );

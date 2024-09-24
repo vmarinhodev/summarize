@@ -1,6 +1,6 @@
 "use client";
 
-import { useActionState } from "react";
+import { useFormState } from "react-dom";
 import { StrapiErrors } from "../custom/StrapiErrors";
 import { cn } from "@/lib/utils";
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "../ui/card";
@@ -25,12 +25,12 @@ export function SummaryCardForm({
 }) {
     const deleteSummaryById = deleteSummaryAction.bind(null, item.id);
 
-    const [deleteState, deleteAction] = useActionState(
+    const [deleteState, deleteAction] = useFormState(
         deleteSummaryById,
         INITIAL_STATE
     );
 
-    const [updateState, updateAction] = useActionState(
+    const [updateState, updateAction] = useFormState(
         updateSummaryAction,
         INITIAL_STATE
     );

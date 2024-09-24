@@ -1,6 +1,6 @@
 "use client";
 import Link from "next/link";
-import { useActionState } from "react";
+import { useFormState } from "react-dom";
 import { registerUserAction } from "@/data/actions/auth-actions";
 import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
@@ -21,7 +21,7 @@ export function SignupForm() {
         data: null,
     };
     
-    const [formState, formAction] = useActionState(
+    const [formState, formAction] = useFormState(
         registerUserAction,
         INITIAL_STATE,
     );
