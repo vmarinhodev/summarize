@@ -10,7 +10,7 @@ const nextConfig = {
             },
             {
                 protocol: "https",
-                hostname: "placehold.co",
+                hostname: "https://summarize-strapi.onrender.com/",
             },
         ],
     },
