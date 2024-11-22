@@ -43,9 +43,7 @@ export default async function SummariesRoute({
     const query = searchParams?.query ?? "";
     const currentPage = Number(searchParams?.page) || 1;
     const { data, meta } = await getSummaries(query, currentPage);
-    const pageCount = meta.pagination.pageCount;
-
-    console.log("meta", meta)
+    const pageCount = meta?.pagination.pageCount;
 
     if (!data) return null;
     return (

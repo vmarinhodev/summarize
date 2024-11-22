@@ -47,17 +47,21 @@ export function flattenAttributes(data: any): any {
 }
 
 export function getStrapiURL() {
-  return process.env.NEXT_APP_STRAPI_URL ?? "http://localhost:1337";
+  return process.env.NEXT_PUBLIC_STRAPI_URL ?? "http://localhost:1337";
 }
 
 export function getStrapiMedia(url: string | null) {
   if (url == null) return null;
   if (url.startsWith("data:")) return url;
-  if (url.startsWith("http") || url.startsWith("//")) return url;
+  if (url.startsWith("https") || url.startsWith("//")) return url;
   return `${getStrapiURL()}${url}`;
 }
 
 export function extractYouTubeID(urlOrID: string): string | null {
+  if (!urlOrID || typeof urlOrID !== "string") {
+    console.error("Invalid input: URL or ID is undefined or not a string.");
+    return null;
+  }
   // Regular expression for youtube ID format
   const regExpID = /^[a-zA-Z0-9_-]{11}$/;
 

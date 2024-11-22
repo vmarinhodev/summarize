@@ -124,7 +124,6 @@ export async function uploadProfileImageAction(
 
     // UPLOAD NEW IMAGE TO MEDIA LIBRARY
     const fileUploadResponse = await fileUploadService(data.image);
-
     if (!fileUploadResponse) {
         return {
             ...prevState,

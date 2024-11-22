@@ -5,7 +5,7 @@ import { getAuthToken } from "./services/get-token";
 
 const baseUrl = getStrapiURL();
 export async function fetchData(url: string) {
-    const authToken = await getAuthToken(); // later stage
+    const authToken = await getAuthToken();
     const headers = {
         method: "GET",
         headers: {
@@ -17,18 +17,14 @@ export async function fetchData(url: string) {
     try {
         const response = await fetch(url, authToken ? headers : {});
         const data = await response.json();
-        
         return flattenAttributes(data);
     } catch (error) {
         console.error("Error fetching data:", error);
         throw error; // or return null;
     }
 }
-
-
 export async function getHomePageData() {
     const url = new URL("/api/home-page", baseUrl);
-
     url.search = qs.stringify({
         populate: {
             blocks: {
