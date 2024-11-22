@@ -42,3 +42,4 @@ Tailwind CSS for styling\
 TypeScript for type checking\
 OpenAI's language model to generate summaries\
 Various libraries and dependencies, including @langchain/openai, @radix-ui/react-label, and react-player
+SVG for icons
