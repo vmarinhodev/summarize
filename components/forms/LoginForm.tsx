@@ -25,6 +25,7 @@ const INITIAL_STATE = {
 
 export function LoginForm() {
     const [formState, formAction] = useFormState(loginUserAction, INITIAL_STATE);
+
     return (
         <div className="w-full max-w-md">
             <form action={formAction}>
@@ -63,7 +64,7 @@ export function LoginForm() {
                             text="Login"
                             loadingText="Loading"
                         />
-                        <StrapiErrors error={formState?.strapiErrors?.error} />
+                        <StrapiErrors error={formState?.strapiErrors} />
                     </CardFooter>
                 </Card>
                 <div className="mt-4 text-center text-sm">

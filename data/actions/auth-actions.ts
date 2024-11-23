@@ -4,6 +4,11 @@ import { loginUserService, registerUserService } from "@/data/services/auth-serv
 import { cookies } from "next/headers";
 import { redirect } from "next/navigation";
 
+
+const emailValidation = new RegExp(
+    /^([A-Z0-9_+-]+\.?)*[A-Z0-9_+-]@([A-Z0-9][A-Z0-9-]*\.)+[A-Z]{2,}$/i
+  );
+
 const config = {
     maxAge: 60 * 60 * 24 * 7, // 1week
     path: "/",
@@ -70,21 +75,16 @@ export async function registerUserAction(prevState: any, formData: FormData) {
 
 const schemaLogin = z.object({
     identifier: z
-        .string()
-        .min(3, {
-            message: "Identifier must have at least 3 or more characters",
-        })
-        .max(20, {
-            message: "Please enter a valid username or email address",
-        }),
+    .string()
+    .min(1, {message: 'Email is required'})
+    .regex(emailValidation, {
+      message: 'Invalid email address'
+    }),
     password: z
         .string()
         .min(6, {
             message: "Password must have at least 6 or more characters",
         })
-        .max(10, {
-            message: "Password must be between 6 and 10 characters",
-        }),
 });
 
 export async function loginUserAction(prevState: any, formData: FormData) {
