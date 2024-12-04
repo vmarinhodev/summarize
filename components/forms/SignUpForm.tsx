@@ -71,7 +71,7 @@ export function SignupForm() {
           </CardContent>
           <CardFooter className="flex flex-col">
             <SubmitButton className="w-full" text="Sign Up" loadingText="Loading" />
-            <StrapiErrors error={formState?.strapiErrors?.error} />
+            <StrapiErrors error={formState?.strapiErrors} />
           </CardFooter>
         </Card>
         <div className="mt-4 text-center text-sm">

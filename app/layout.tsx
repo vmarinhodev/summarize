@@ -25,7 +25,15 @@ export default async function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <Toaster position="bottom-center" />
+        <Toaster
+              toastOptions={{
+                classNames: {
+                  error: 'bg-red-400',
+                  success: 'bg-green-400',
+                  warning: 'bg-yellow-400',
+                },
+              }}
+            />
         <Header data={globalData.header} />
         <div>{children}</div>
         <Footer data={globalData.footer} />

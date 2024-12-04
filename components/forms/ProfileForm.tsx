@@ -41,6 +41,8 @@ export function ProfileForm({ data, className, }: { readonly data: ProfileFormPr
         updateProfileWithId,
         INITIAL_STATE
     );
+
+    console.log('data initil ', data)
     return (
         <form className={cn("space-y-4", className)}
             action={formAction}
